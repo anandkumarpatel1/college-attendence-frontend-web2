@@ -1,0 +1,80 @@
+.bottomNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+  }
+}
+
+.SideBarCont {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 500px;
+  background: black;
+  opacity: 0.95;
+  height: calc(100vh - 43px);
+  justify-content: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  padding-top: 100px;
+  border-radius: 25px 0 0 25px;
+  animation: sideBar 0.5s ease-in-out;
+
+  > div {
+    > ul {
+      list-style: none;
+
+      > li {
+        font-weight: 700;
+        color: white;
+        font-size: 30px;
+        padding: 10px;
+        cursor: pointer;
+
+        > a {
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.SideBarContNone {
+  display: none;
+}
+
+@keyframes sideBar {
+  from {
+    transform: translateX(600px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .bottomNav {
+    height: 60px;
+  }
+
+  .SideBarCont {
+    width: 100%;
+  }
+}

@@ -1,0 +1,78 @@
+.studentDetailsCard {
+  cursor: pointer;
+  width: 500px;
+  margin-top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  padding: 30px;
+
+  > :first-child {
+    display: flex;
+    justify-content: space-between;
+
+    > :last-child {
+      margin-left: 30px;
+    }
+  }
+
+  > :last-child {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    > button {
+      padding: 10px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      width: 45%;
+      color: white;
+    }
+  }
+}
+.studentDetailsCardLoad {
+  width: 500px;
+  margin-top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+  padding: 30px;
+}
+.StudentDetailsCont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: white;
+  margin-bottom: 50px;
+  width: 100%;
+
+  > :first-child {
+    width: 96vw;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .StudentDetailsCont {
+    margin-bottom: 80px;
+
+    > :first-child {
+      width: 90vw;
+    }
+  }
+  .studentDetailsCard {
+    width: 90%;
+  }
+  .studentDetailsCardLoad {
+    width: 90vw;
+    margin-left: 5vw;
+  }
+}

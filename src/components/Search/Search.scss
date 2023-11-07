@@ -1,0 +1,39 @@
+.searchCont {
+  margin: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+
+  > input {
+    width: 95%;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    border-radius: 25px 0 0 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  > div {
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .searchCont {
+    > input {
+      width: 80%;
+    }
+
+    > div {
+      width: 20%;
+    }
+  }
+}
