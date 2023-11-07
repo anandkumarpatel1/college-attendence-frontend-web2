@@ -8,7 +8,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   > div {
     display: flex;
     justify-content: space-around;
@@ -19,13 +19,14 @@
 
 .SideBarCont {
   display: flex;
+  z-index: 1000;
   position: fixed;
   top: 0;
   right: 0;
   width: 500px;
   background: black;
   opacity: 0.95;
-  height: calc(100vh - 43px);
+  height: calc(100vh - 50px);
   justify-content: center;
   border-left: 1px solid rgba(255, 255, 255, 0.8);
   padding-top: 100px;

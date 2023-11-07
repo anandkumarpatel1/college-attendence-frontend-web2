@@ -13,10 +13,18 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import InfoIcon from "@mui/icons-material/Info";
 
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutTeacher } from "../../action/Teacher";
 
 function BottomNavbar() {
   const [root, setRoot] = useState(window.location.pathname);
   const [toggle, setToggle] = useState(true);
+
+  const dispatch = useDispatch()
+
+  const logoutHandler = () =>{
+    dispatch(logoutTeacher())
+  }
   return (
     <>
       <div className="bottomNav">
@@ -83,7 +91,7 @@ function BottomNavbar() {
                   Profile
                 </Link>
               </li>
-              <li>
+              <li onClick={logoutHandler}>
                 <Link>
                   <LogoutIcon sx={{ fontSize: 45, paddingRight: "10px" }} />
                   Logout

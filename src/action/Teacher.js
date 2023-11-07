@@ -9,7 +9,7 @@ export const loginTeacher = (email, password) => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-      sameSite: "None"
+      sameSite: "None",
     };
 
     const { data } = await axios.post(
@@ -39,7 +39,7 @@ export const loadTeacher = () => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-      sameSite: "None"
+      sameSite: "None",
     };
 
     const { data } = await axios.get(
@@ -69,7 +69,7 @@ export const getAllEnrolledStudents = () => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
-      sameSite: "None"
+      sameSite: "None",
     };
 
     const { data } = await axios.get(
@@ -200,6 +200,37 @@ export const enrollNewStudent = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "EnrollNewFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+export const logoutTeacher = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LogoutRequest",
+    });
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      sameSite: "None",
+    };
+
+    const { data } = await axios.get(
+      `https://college-attendence-backend-sp8j.vercel.app/api/v1/logout`,
+      config
+    );
+
+    console.log(document.cookie)
+
+    dispatch({
+      type: "LogoutSuccess",
+      payload: document.cookie = "token= null; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;",
+    });
+  } catch (error) {
+    dispatch({
+      type: "LogoutFailure",
       payload: error.response.data.message,
     });
   }

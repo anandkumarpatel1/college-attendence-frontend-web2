@@ -38,10 +38,12 @@ const Login = () => {
   useEffect(() =>{
     dispatch(loadTeacher())
   }, [])
-const loader = false
+  const { loading } = useSelector(
+    (state) => state.teacherLoad
+  );
   return (
     <>
-      {loader ? (
+      {loading ? (
         <Loader />
       ) : (
         <div className={`login_container ${container}`}>

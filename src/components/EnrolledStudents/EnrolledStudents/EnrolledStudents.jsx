@@ -16,7 +16,6 @@ const EnrolledStudents = () => {
   const { student, loading } = useSelector((state) => state.allStudents);
 
   const { teacher } = useSelector((state) => state.teacherLoad);
-  console.log(teacher?.students)
 
   return (
     <>
