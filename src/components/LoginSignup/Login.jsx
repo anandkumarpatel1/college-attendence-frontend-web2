@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./Login.scss";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from '../Loader/Loader'
-import { loadTeacher, loginTeacher } from "../../action/Teacher";
-import Logo from '../../assests/Logo.png'
-
+import Loader from "../Loader/Loader";
+import {
+  loadTeacher,
+  loginTeacher,
+  registerTeacher,
+} from "../../action/Teacher";
+import Logo from "../../assests/Logo.png";
 
 const Login = () => {
-
   //switch login signup
   const [container, setContainer] = useState("");
 
-  //login 
+  //login
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
   //signup
-  const [signupName, setSignupName] = useState("")
-  const [signupEmail, setSignupEmail] = useState("")
-  const [signupSubject, setSignupSubject] = useState("")
-  const [signupPassword, setSignupPassword] = useState("")
-  const dispatch = useDispatch()
+  const [signupName, setSignupName] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupSubject, setSignupSubject] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const dispatch = useDispatch();
 
   //login handler
   const loginHandler = (e) => {
@@ -31,16 +33,15 @@ const Login = () => {
   //signup handler
   const signupHandler = (e) => {
     e.preventDefault();
-    // dispatch(loginTeacher(loginEmail, loginPassword));
+    dispatch(
+      registerTeacher(signupName, signupSubject, signupEmail, signupPassword)
+    );
   };
 
-
-  useEffect(() =>{
-    dispatch(loadTeacher())
-  }, [])
-  const { loading } = useSelector(
-    (state) => state.teacherLoad
-  );
+  useEffect(() => {
+    dispatch(loadTeacher());
+  }, []);
+  const { loading } = useSelector((state) => state.teacherLoad);
   return (
     <>
       {loading ? (
@@ -78,19 +79,39 @@ const Login = () => {
                 <h2 className="title">Create Account</h2>
                 <div className="input-field">
                   <i className="fas fa-user"></i>
-                  <input type="text" placeholder="Name" value={signupName} onChange={(e) => setSignupName(e.target.value)}/>
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    value={signupName}
+                    onChange={(e) => setSignupName(e.target.value)}
+                  />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope"></i>
-                  <input type="email" placeholder="Email" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)}/>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={signupEmail}
+                    onChange={(e) => setSignupEmail(e.target.value)}
+                  />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-envelope"></i>
-                  <input type="text" placeholder="Subject" value={signupSubject} onChange={(e) => setSignupSubject(e.target.value)}/>
+                  <input
+                    type="text"
+                    placeholder="Subject"
+                    value={signupSubject}
+                    onChange={(e) => setSignupSubject(e.target.value)}
+                  />
                 </div>
                 <div className="input-field">
                   <i className="fas fa-lock"></i>
-                  <input type="password" placeholder="Password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)}/>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={signupPassword}
+                    onChange={(e) => setSignupPassword(e.target.value)}
+                  />
                 </div>
                 <input type="submit" value="Sign Up" className="btn solid" />
               </form>

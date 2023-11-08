@@ -6,7 +6,7 @@ import { loadTeacher } from "./action/Teacher";
 import BottomNavbar from "./components/BottomNavbar/BottomNavbar";
 import Teacher from "./components/Profile/Teacher/Teacher";
 import Home from "./components/Home/Home";
-import Search from './components/Search/Search'
+import Search from "./components/Search/Search";
 import { Skeleton } from "@mui/material";
 import EnrolledStudents from "./components/EnrolledStudents/EnrolledStudents/EnrolledStudents";
 import StudentProfile from "./components/Profile/student/StudentProfile";
@@ -18,11 +18,13 @@ const App = () => {
     dispatch(loadTeacher());
   }, [dispatch]);
 
-  const { loading } = useSelector(
-    (state) => state.teacherLogin
-  );
+  const { loading } = useSelector((state) => state.teacherLogin);
 
   const { isAuthenticated } = useSelector((state) => state.teacherLoad);
+
+  const data = useSelector((action) => action?.error);
+
+  console.log(data)
 
 
   return (
@@ -118,9 +120,15 @@ const App = () => {
 
           <Route path="/me" element={isAuthenticated && <Teacher />} />
 
-          <Route path="/students" element={isAuthenticated && <EnrolledStudents />} />
+          <Route
+            path="/students"
+            element={isAuthenticated && <EnrolledStudents />}
+          />
 
-          <Route path="/student/:id" element={isAuthenticated && <StudentProfile />} />
+          <Route
+            path="/student/:id"
+            element={isAuthenticated && <StudentProfile />}
+          />
 
           <Route path="/search" element={isAuthenticated && <Search />} />
         </Routes>

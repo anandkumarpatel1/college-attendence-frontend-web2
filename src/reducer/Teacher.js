@@ -16,6 +16,19 @@ export const teacherLoginReducer = createReducer(initialState, {
     state.isAuthenticated = false;
     state.error = action.error;
   },
+  RegisterRequest: (state) => {
+    state.loading = true;
+  },
+  RegisterSuccess: (state, action) => {
+    state.loading = false;
+    state.teacher = action.payload;
+    state.isAuthenticated = true;
+  },
+  RegisterFailure: (state, action) => {
+    state.loading = false;
+    state.isAuthenticated = false;
+    state.error = action.error;
+  },
   clearError: (state) => {
     state.error = null;
   },

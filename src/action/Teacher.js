@@ -59,6 +59,36 @@ export const loadTeacher = () => async (dispatch) => {
   }
 };
 
+export const registerTeacher = (name, subject, email, password) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "RegisterRequest",
+    });
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      sameSite: "None",
+    };
+
+    const { data } = await axios.post(
+      "https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher/register",
+      {name, subject, email, password},
+      config
+    );
+
+    dispatch({
+      type: "RegisterSuccess",
+      payload: data.teacher,
+    });
+  } catch (error) {
+    dispatch({
+      type: "RegisterFailure",
+      payload: error.response.data.message,
+    });
+  }
+}
+
 //get all enrolled students
 export const getAllEnrolledStudents = () => async (dispatch) => {
   try {

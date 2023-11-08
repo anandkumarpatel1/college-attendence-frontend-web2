@@ -34,7 +34,7 @@ const Home = () => {
 
           <div className="HomeCard animate__animated animate__bounceInLeft">
             <AppShortcutIcon sx={{ fontSize: 40 }} />
-            <p style={{ fontSize: 20 }}>Real Time Mointering</p>
+            <p style={{ fontSize: 20 }}>Real Time Monitoring</p>
           </div>
         </div>
         <div>
