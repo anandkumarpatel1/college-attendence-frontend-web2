@@ -22,14 +22,40 @@ function BottomNavbar() {
 
   const dispatch = useDispatch()
 
+  const homeHandler = () => {
+    setRoot("/")
+    setToggle(true)
+  }
+
+  const meHandler = () =>{
+    setRoot("/me")
+    setToggle(true)
+  }
+
+  const searchHandler = () =>{
+    setRoot("/search")
+    setToggle(true)
+  }
+
+  const aboutHandler = () =>{
+    setRoot('/about')
+    setToggle(true)
+  }
+
+  const studentHandler = () =>{
+    setRoot('/students')
+    setToggle(true)
+  }
+
   const logoutHandler = () =>{
     dispatch(logoutTeacher())
+    setToggle(true)
   }
   return (
     <>
       <div className="bottomNav">
         <div>
-          <Link to="/" onClick={() => setRoot("/")}>
+          <Link to="/" onClick={homeHandler}>
             <Button variant={root === "/" ? "outlined" : "text"}>
               {root === "/" ? (
                 <HomeIcon color="primary" />
@@ -39,7 +65,7 @@ function BottomNavbar() {
             </Button>
           </Link>
 
-          <Link to="/students" onClick={() => setRoot("/students")}>
+          <Link to="/students" onClick={searchHandler}>
             <Button variant={root === "/students" ? "outlined" : "text"}>
               {root === "/students" ? (
                 <PeopleAltIcon color="primary" />
@@ -49,7 +75,7 @@ function BottomNavbar() {
             </Button>
           </Link>
 
-          <Link to="/me" onClick={() => setRoot("/me")}>
+          <Link to="/me" onClick={meHandler}>
             <Button variant={root === "/me" ? "outlined" : "text"}>
               {root === "/me" ? (
                 <PersonIcon color="primary" />
@@ -59,13 +85,13 @@ function BottomNavbar() {
             </Button>
           </Link>
 
-          <Link to="/search" onClick={() => setRoot("/search")}>
+          <Link to="/search" onClick={searchHandler}>
             <Button variant={root === "/search" ? "outlined" : "text"}>
               <SearchIcon color="primary" />
             </Button>
           </Link>
 
-          <Button onClick={() => setToggle(!toggle)}>
+          <Button onClick={() => setToggle(false)}>
             <MenuOpenIcon />
           </Button>
         </div>
@@ -75,7 +101,7 @@ function BottomNavbar() {
           <div>
             <ul>
               <li>
-                <Link to="/" onClick={() => setRoot("/")}>
+                <Link to="/" onClick={homeHandler}>
                   <HomeOutlinedIcon
                     sx={{ fontSize: 45, paddingRight: "10px" }}
                   />
@@ -84,7 +110,7 @@ function BottomNavbar() {
               </li>
 
               <li>
-                <Link to="/me" onClick={() => setRoot("/me")}>
+                <Link to="/me" onClick={meHandler}>
                   <PeopleOutlineOutlinedIcon
                     sx={{ fontSize: 45, paddingRight: "10px" }}
                   />
@@ -97,7 +123,7 @@ function BottomNavbar() {
                   Logout
                 </Link>
               </li>
-              <li>
+              <li onClick={aboutHandler}>
                 <Link to="/about">
                   <InfoIcon sx={{ fontSize: 45, paddingRight: "10px" }} />
                   About

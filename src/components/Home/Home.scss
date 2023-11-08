@@ -9,7 +9,7 @@
     z-index: 5;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(../../assests/man.jpg);
+    background-image: url(../../assests/man.svg);
     backdrop-filter: blur(10px);
     font-size: 60px;
     font-weight: 900;
@@ -18,7 +18,6 @@
     align-items: center;
 
     > p {
-      background-image: url(../../assests/paint.jpg);
       background-clip: text;
       background-position: center;
       background-size: contain;
@@ -115,7 +114,7 @@
       background-size: cover;
       height: 300px;
       background-repeat: no-repeat;
-      background-image: url(../../assests/man.jpg);
+      background-image: url(../../assests/man.svg);
       backdrop-filter: blur(10px);
       font-size: 35px;
       text-wrap: wrap;
@@ -125,7 +124,6 @@
       align-items: center;
 
       > p {
-        background-image: url(../../assests/paint.jpg);
         background-clip: text;
         background-position: center;
         background-size: contain;
