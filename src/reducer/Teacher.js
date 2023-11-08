@@ -24,6 +24,28 @@ export const teacherLoginReducer = createReducer(initialState, {
   },
 });
 
+export const teacherLogoutReducer = createReducer(initialState, {
+  LoginRequest: (state) => {
+    state.loading = true;
+  },
+  LoginSuccess: (state, action) => {
+    state.loading = false;
+    state.teacher = null;
+    state.isAuthenticated = false;
+  },
+  LoginFailure: (state, action) => {
+    state.loading = false;
+    state.isAuthenticated = true;
+    state.error = action.error;
+  },
+  clearError: (state) => {
+    state.error = null;
+  },
+  clearMessage: (state) => {
+    state.message = null;
+  },
+});
+
 export const teacherLoadReducer = createReducer(initialState, {
   LoadRequest: (state) => {
     state.loading = true;
@@ -147,23 +169,3 @@ export const enrollNewStudentReducer = createReducer(initialState, {
     state.message = null;
   },
 });
-
-export const logoutReducer = createReducer(initialState, {
-  LogoutRequest: (state) => {
-    state.loading = true;
-  },
-  LogoutSuccess: (state, action) => {
-    state.loading = false;
-    state.action = action.payload;
-  },
-  LogoutFailure: (state, action) => {
-    state.loading = false;
-    state.error = action.payload;
-  },
-  clearError: (state) => {
-    state.error = null;
-  },
-  clearMessage: (state) => {
-    state.message = null;
-  },
-})

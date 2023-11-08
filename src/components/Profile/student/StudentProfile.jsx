@@ -12,7 +12,7 @@ import Calendar from "react-awesome-calendar";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const StudentProfile = () => {
-  const [ass, setAss] = useState([]) 
+  const [ass, setAss] = useState('') 
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -23,6 +23,27 @@ const StudentProfile = () => {
   const { loading, student } = useSelector((state) => state.studentProfile);
 
   const { teacher } = useSelector((state) => state.teacherLoad);
+
+  let i = 0;
+  let y = 0;
+  let present = localStorage.getItem('present')
+  let absent = localStorage.getItem('absent')
+  present = JSON.parse(present)
+  absent = JSON.parse(absent)
+  for(let x of present){
+    if(teacher?._id === x?._id){
+      i++;
+    }
+  }
+
+  for(let x of absent){
+    if(teacher?._id === x?._id){
+      y++
+    }
+  }
+
+  const total = i + y;
+
 
   let events = student?.present.map((item, index) => ({
     key: index,
@@ -43,20 +64,23 @@ const StudentProfile = () => {
 
   events = events?.concat(events2);
 
-  const totalDay = student?.present.length + student?.absent.length;
 
   const data = {
     labels: ["Absent", "Present"],
     datasets: [
       {
         label: "Attendence Day of",
-        data: [totalDay - student?.present.length, student?.present.length],
+        data: [total - i, y],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
         borderWidth: 1,
       },
     ],
   };
+
+
+  
+
 
   return (
     <>
@@ -143,11 +167,11 @@ const StudentProfile = () => {
                 <p>: {student?.semRollNo}</p>
                 <p>: {student?._id}</p>
                 <p>
-                  : {student?.present.length} Day (
-                  {(student?.present.length * 100) / totalDay}%)
+                  : {i} Day (
+                  {(i * 100) / (i+y)}%)
                 </p>
-                <p>: {student?.absent.length} Day</p>
-                <p>: {totalDay} Day</p>
+                <p>: {y} Day</p>
+                <p>: {i+y} Day</p>
               </div>
             </div>
           </div>

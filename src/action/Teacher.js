@@ -222,11 +222,8 @@ export const logoutTeacher = () => async (dispatch) => {
       config
     );
 
-    console.log(document.cookie)
-
     dispatch({
       type: "LogoutSuccess",
-      payload: document.cookie = "token= null; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;",
     });
   } catch (error) {
     dispatch({

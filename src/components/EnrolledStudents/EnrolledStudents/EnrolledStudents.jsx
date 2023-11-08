@@ -91,6 +91,8 @@ const EnrolledStudents = () => {
                 semester={item?.semester}
                 semRollNo={item?.semRollNo}
                 regNo={item?.regNo}
+                present={item?.present}
+                absent={item?.absent}
               />
             ))}
           </>

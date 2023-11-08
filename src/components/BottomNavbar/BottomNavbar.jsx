@@ -14,7 +14,7 @@ import InfoIcon from "@mui/icons-material/Info";
 
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logoutTeacher } from "../../action/Teacher";
+import { loadTeacher, logoutTeacher } from "../../action/Teacher";
 
 function BottomNavbar() {
   const [root, setRoot] = useState(window.location.pathname);

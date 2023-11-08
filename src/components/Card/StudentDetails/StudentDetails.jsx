@@ -1,15 +1,17 @@
 import { Button, Skeleton } from "@mui/material";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { profileStudent } from "../../../action/Teacher";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
-const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo }) => {
+const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo, present, absent }) => {
 
   const navigate = useNavigate()
 
   const studentDetailsCardHandler = () =>{
     navigate(`/student/${id}`)
+    localStorage.setItem("present", JSON.stringify(present))
+    localStorage.setItem("absent", JSON.stringify(absent))
   }
 
   const presentHandler = () =>{

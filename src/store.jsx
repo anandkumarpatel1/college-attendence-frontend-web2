@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { allStudentsReducer, enrollNewStudentReducer, enrolledStudentsReducer, logoutReducer, profileStudentsReducer, searchStudentsReducer, teacherLoadReducer, teacherLoginReducer } from "./reducer/Teacher";
+import { allStudentsReducer, enrollNewStudentReducer, enrolledStudentsReducer, profileStudentsReducer, searchStudentsReducer, teacherLoadReducer, teacherLoginReducer } from "./reducer/Teacher";
 
 
 const store = configureStore({
@@ -10,8 +10,7 @@ const store = configureStore({
     allStudents: allStudentsReducer,
     searchStudents: searchStudentsReducer,
     studentProfile: profileStudentsReducer,
-    enrollNewStudent: enrollNewStudentReducer,
-    teacherLogout: logoutReducer,
+    enrollNewStudent: enrollNewStudentReducer
   },
 });
 
