@@ -18,11 +18,9 @@
     align-items: center;
 
     > p {
-      background-clip: text;
-      background-position: center;
-      background-size: contain;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0.8),blue);
+      -webkit-text-fill-color: transparent; 
+      -webkit-background-clip: text; 
     }
 
     > :first-child {
@@ -124,11 +122,9 @@
       align-items: center;
 
       > p {
-        background-clip: text;
-        background-position: center;
-        background-size: contain;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.8),blue);
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text; 
       }
 
       > :first-child {
