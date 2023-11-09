@@ -4,11 +4,24 @@ import college from "../../../assests/collegeHome.svg";
 import choose from "../../../assests/choose.svg";
 import started from "../../../assests/started.svg";
 import dev1 from "../../../assests/dev1.jpg";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { Tilt } from "react-tilt";
 
 const About = () => {
+  const defaultOptions = {
+    reverse: false, // reverse the tilt direction
+    max: 35, // max tilt rotation (degrees)
+    perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+    scale: 1.1, // 2 = 200%, 1.5 = 150%, etc..
+    speed: 1000, // Speed of the enter/exit transition
+    transition: true, // Set a transition on enter/exit.
+    axis: null, // What axis should be disabled. Can be X or Y.
+    reset: true, // If the tilt effect has to be reset on exit.
+    easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+  };
+
   return (
     <>
       <div className="aboutCont">
@@ -16,42 +29,42 @@ const About = () => {
           <p>About The Attendo College</p>
         </div>
         <div className="devCont">
-          <div>
+          <Tilt options={defaultOptions} style={{ height: 400, width: 400 }}>
             <img src={dev1} alt={dev1} />
             <p>Anand Kumar</p>
             <div>
-              <InstagramIcon sx={{fontSize: 40}}/>
-              <GitHubIcon sx={{fontSize: 40}}/>
-              <MailOutlineIcon sx={{fontSize: 40}}/>
+              <InstagramIcon sx={{ fontSize: 40 }} />
+              <GitHubIcon sx={{ fontSize: 40 }} />
+              <MailOutlineIcon sx={{ fontSize: 40 }} />
             </div>
-          </div>
-          <div>
+          </Tilt>
+          <Tilt options={defaultOptions} style={{ height: 400, width: 400 }}>
             <img src={dev1} alt={dev1} />
             <p>Anand Kumar</p>
             <div>
-              <InstagramIcon sx={{fontSize: 40}}/>
-              <GitHubIcon sx={{fontSize: 40}}/>
-              <MailOutlineIcon sx={{fontSize: 40}}/>
+              <InstagramIcon sx={{ fontSize: 40 }} />
+              <GitHubIcon sx={{ fontSize: 40 }} />
+              <MailOutlineIcon sx={{ fontSize: 40 }} />
             </div>
-          </div>
-          <div>
+          </Tilt>
+          <Tilt options={defaultOptions} style={{ height: 400, width: 400 }}>
             <img src={dev1} alt={dev1} />
             <p>Anand Kumar</p>
             <div>
-              <InstagramIcon sx={{fontSize: 40}}/>
-              <GitHubIcon sx={{fontSize: 40}}/>
-              <MailOutlineIcon sx={{fontSize: 40}}/>
+              <InstagramIcon sx={{ fontSize: 40 }} />
+              <GitHubIcon sx={{ fontSize: 40 }} />
+              <MailOutlineIcon sx={{ fontSize: 40 }} />
             </div>
-          </div>
-          <div>
+          </Tilt>
+          <Tilt options={defaultOptions} style={{ height: 400, width: 400 }}>
             <img src={dev1} alt={dev1} />
             <p>Anand Kumar</p>
             <div>
-              <InstagramIcon sx={{fontSize: 40}}/>
-              <GitHubIcon sx={{fontSize: 40}}/>
-              <MailOutlineIcon sx={{fontSize: 40}}/>
+              <InstagramIcon sx={{ fontSize: 40 }} />
+              <GitHubIcon sx={{ fontSize: 40 }} />
+              <MailOutlineIcon sx={{ fontSize: 40 }} />
             </div>
-          </div>
+          </Tilt>
         </div>
         <div>
           <img src={college} alt={college} />
