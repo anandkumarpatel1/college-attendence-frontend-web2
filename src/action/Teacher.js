@@ -252,6 +252,8 @@ export const logoutTeacher = () => async (dispatch) => {
       config
     );
 
+    
+
     dispatch({
       type: "LogoutSuccess",
     });

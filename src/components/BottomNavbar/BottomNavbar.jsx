@@ -12,15 +12,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import InfoIcon from "@mui/icons-material/Info";
 
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loadTeacher, logoutTeacher } from "../../action/Teacher";
-
+import Cookies from "js-cookie";
 function BottomNavbar() {
   const [root, setRoot] = useState(window.location.pathname);
   const [toggle, setToggle] = useState(true);
 
   const dispatch = useDispatch()
+  const navigate =  useNavigate()
 
   const navHandler = () =>{
     if(toggle){
@@ -56,6 +58,8 @@ function BottomNavbar() {
   }
 
   const logoutHandler = () =>{
+    // Cookies.remove('name', { path: '/' })
+    // // navigate('/login')
     dispatch(logoutTeacher())
     setToggle(true)
   }
@@ -73,7 +77,7 @@ function BottomNavbar() {
             </Button>
           </Link>
 
-          <Link to="/students" onClick={searchHandler}>
+          <Link to="/students" onClick={studentHandler}>
             <Button variant={root === "/students" ? "outlined" : "text"}>
               {root === "/students" ? (
                 <PeopleAltIcon color="primary" />
