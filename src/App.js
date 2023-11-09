@@ -10,6 +10,7 @@ import Search from "./components/Search/Search";
 import { Skeleton } from "@mui/material";
 import EnrolledStudents from "./components/EnrolledStudents/EnrolledStudents/EnrolledStudents";
 import StudentProfile from "./components/Profile/student/StudentProfile";
+import About from "./components/Home/About/About";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -131,6 +132,8 @@ const App = () => {
           />
 
           <Route path="/search" element={isAuthenticated && <Search />} />
+
+          <Route path="/about" element={<About />} />
         </Routes>
         {isAuthenticated && <BottomNavbar />}
       </BrowserRouter>

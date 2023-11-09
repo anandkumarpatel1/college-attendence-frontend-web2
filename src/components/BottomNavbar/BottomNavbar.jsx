@@ -22,6 +22,14 @@ function BottomNavbar() {
 
   const dispatch = useDispatch()
 
+  const navHandler = () =>{
+    if(toggle){
+      setToggle(false)
+    } else{
+      setToggle(true)
+    }
+  }
+
   const homeHandler = () => {
     setRoot("/")
     setToggle(true)
@@ -91,7 +99,7 @@ function BottomNavbar() {
             </Button>
           </Link>
 
-          <Button onClick={() => setToggle(false)}>
+          <Button onClick={navHandler}>
             <MenuOpenIcon />
           </Button>
         </div>
