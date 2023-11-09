@@ -73,6 +73,7 @@
 @media (max-width: 600px) {
   .bottomNav {
     height: 60px;
+    z-index: 10000;
   }
 
   .SideBarCont {
