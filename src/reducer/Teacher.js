@@ -38,15 +38,15 @@ export const teacherLoginReducer = createReducer(initialState, {
 });
 
 export const teacherLogoutReducer = createReducer(initialState, {
-  LoginRequest: (state) => {
+  LogoutRequest: (state) => {
     state.loading = true;
   },
-  LoginSuccess: (state, action) => {
+  LogoutSuccess: (state, action) => {
     state.loading = false;
     state.teacher = null;
     state.isAuthenticated = false;
   },
-  LoginFailure: (state, action) => {
+  LogoutFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = true;
     state.error = action.error;

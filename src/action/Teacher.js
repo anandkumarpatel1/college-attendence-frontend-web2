@@ -30,34 +30,6 @@ export const loginTeacher = (email, password) => async (dispatch) => {
   }
 };
 
-export const logoutTeacher = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: "LogoutRequest",
-    });
-
-    const config = {
-      withCredentials: true,
-    };
-
-    const { data } = await axios.get(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/logout`,
-      config
-    );
-
-    
-
-    dispatch({
-      type: "LogoutSuccess",
-    });
-  } catch (error) {
-    dispatch({
-      type: "LogoutFailure",
-      payload: error.response.data.message,
-    });
-  }
-};
-
 export const loadTeacher = () => async (dispatch) => {
   try {
     dispatch({
@@ -263,4 +235,33 @@ export const enrollNewStudent = (id) => async (dispatch) => {
   }
 };
 
+export const logoutTeacher = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: "LogoutRequest",
+    });
 
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      sameSite: "None",
+    };
+
+
+    const { data } = await axios.get(
+      "https://college-attendence-backend-sp8j.vercel.app/api/v1/logout",
+      config
+    );
+
+    
+
+    dispatch({
+      type: "LogoutSuccess",
+    });
+  } catch (error) {
+    dispatch({
+      type: "LogoutFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
