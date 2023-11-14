@@ -8,6 +8,7 @@ import {
   registerTeacher,
 } from "../../action/Teacher";
 import Logo from "../../assests/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   //switch login signup
@@ -23,11 +24,22 @@ const Login = () => {
   const [signupSubject, setSignupSubject] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(loadTeacher());
+  }, []);
+  const { loading } = useSelector((state) => state.teacherLoad);
+  const { teacher } = useSelector((state) => state.teacherLogin);
 
   //login handler
   const loginHandler = (e) => {
     e.preventDefault();
     dispatch(loginTeacher(loginEmail, loginPassword));
+    console.log(teacher)
+    if (teacher?._id) {
+      navigate("/");
+    }
   };
 
   //signup handler
@@ -38,10 +50,6 @@ const Login = () => {
     );
   };
 
-  useEffect(() => {
-    dispatch(loadTeacher());
-  }, []);
-  const { loading } = useSelector((state) => state.teacherLoad);
   return (
     <>
       {loading ? (

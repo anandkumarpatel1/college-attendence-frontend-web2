@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/LoginSignup/Login";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,19 +13,22 @@ import StudentProfile from "./components/Profile/student/StudentProfile";
 import About from "./components/Home/About/About";
 
 const App = () => {
+  const [root, setRoot] = useState(window.location.pathname);
+  const [a, setA] = useState(true)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadTeacher());
+    
+  if(root === '/login'){
+    setA(false)
+  }
   }, [dispatch]);
 
   const { loading } = useSelector((state) => state.teacherLogin);
 
   const { isAuthenticated } = useSelector((state) => state.teacherLoad);
-
-  const data = useSelector((action) => action?.error);
-
-  console.log(data)
 
 
   return (
@@ -116,7 +119,7 @@ const App = () => {
 
           <Route
             path="/login"
-            element={isAuthenticated ? <Home /> : <Login />}
+            element={ <Login />}
           />
 
           <Route path="/me" element={isAuthenticated && <Teacher />} />
@@ -135,7 +138,7 @@ const App = () => {
 
           <Route path="/about" element={<About />} />
         </Routes>
-        {isAuthenticated && <BottomNavbar />}
+        {isAuthenticated && a && <BottomNavbar />}
       </BrowserRouter>
     </>
   );

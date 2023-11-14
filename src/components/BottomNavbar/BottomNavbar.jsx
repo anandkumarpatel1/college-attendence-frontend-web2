@@ -59,9 +59,9 @@ function BottomNavbar() {
 
   const logoutHandler = () =>{
     // Cookies.remove('name', { path: '/' })
-    // // navigate('/login')
     dispatch(logoutTeacher())
     setToggle(true)
+    navigate('/login')
   }
   return (
     <>
