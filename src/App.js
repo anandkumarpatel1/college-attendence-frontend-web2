@@ -11,6 +11,9 @@ import { Skeleton } from "@mui/material";
 import EnrolledStudents from "./components/EnrolledStudents/EnrolledStudents/EnrolledStudents";
 import StudentProfile from "./components/Profile/student/StudentProfile";
 import About from "./components/Home/About/About";
+import AddNewStu from "./components/EnrolledStudents/AddNewStudent/AddNewStu";
+import AllStudent from "./components/AllStudents/AllStudent";
+import NewStudent from "./components/Profile/NewStudent/NewStudent";
 
 const App = () => {
   const [root, setRoot] = useState(window.location.pathname);
@@ -137,6 +140,12 @@ const App = () => {
           <Route path="/search" element={isAuthenticated && <Search />} />
 
           <Route path="/about" element={<About />} />
+
+          <Route path="/addnewStudent" element={<AddNewStu />} />
+
+          <Route path="/allstudents" element={<AllStudent />} />
+
+          <Route path="/new-student/:id" element={<NewStudent />} />
         </Routes>
         {isAuthenticated && a && <BottomNavbar />}
       </BrowserRouter>

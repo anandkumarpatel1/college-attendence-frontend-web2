@@ -1,11 +1,11 @@
-.teacherProfile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.allStuCont {
   color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
 
-
-  > :first-child {
+  >:first-child {
     width: 96vw;
     border: 1px solid rgba(255, 255, 255, 0.8);
     display: flex;
@@ -16,7 +16,5 @@
     padding: 30px;
     font-size: 20px;
     margin-top: 10px;
-    text-transform: uppercase;
-    font-weight: 700;
   }
 }

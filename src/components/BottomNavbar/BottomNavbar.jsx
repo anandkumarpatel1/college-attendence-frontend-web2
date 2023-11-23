@@ -52,6 +52,11 @@ function BottomNavbar() {
     setToggle(true)
   }
 
+  const allStuHandler = () =>{
+    setRoot('/allstudents')
+    setToggle(true)
+  }
+
   const studentHandler = () =>{
     setRoot('/students')
     setToggle(true)
@@ -123,10 +128,18 @@ function BottomNavbar() {
 
               <li>
                 <Link to="/me" onClick={meHandler}>
-                  <PeopleOutlineOutlinedIcon
+                  <PermIdentityOutlinedIcon
                     sx={{ fontSize: 45, paddingRight: "10px" }}
                   />
                   Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/allstudents" onClick={allStuHandler}>
+                  <PeopleOutlineOutlinedIcon
+                    sx={{ fontSize: 45, paddingRight: "10px" }}
+                  />
+                  Students
                 </Link>
               </li>
               <li onClick={logoutHandler}>

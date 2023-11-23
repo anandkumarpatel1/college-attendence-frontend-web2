@@ -115,6 +115,8 @@ const Search = () => {
                 regNo={item.regNo}
                 semRollNo={item.semRollNo}
                 id={item._id}
+                present={item?.present}
+                absent={item?.absent}
               />
             ))}
           </div>
