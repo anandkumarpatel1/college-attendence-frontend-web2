@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//login teacher
 export const loginTeacher = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -30,6 +31,38 @@ export const loginTeacher = (email, password) => async (dispatch) => {
   }
 };
 
+//enroll new student
+export const enrollNewStudent = (id) => async (dispatch) => {
+try {
+  dispatch({
+    type: "EnrollNewStuRequest",
+  });
+
+  const config = {
+    headers: { "Content-Type": "application/json" },
+    withCredentials: true,
+    sameSite: "None",
+  };
+
+  const { data } = await axios.post(
+    `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/enroll/${id}`,
+    config
+  );
+
+  dispatch({
+    type: "EnrollNewStuSuccess",
+    payload: data.teacher,
+  });
+
+} catch (error) {
+  dispatch({
+    type: "EnrollNewStuFailure",
+    payload: error.response.data.message,
+  });
+}
+}
+
+//load teacher
 export const loadTeacher = () => async (dispatch) => {
   try {
     dispatch({
@@ -59,6 +92,7 @@ export const loadTeacher = () => async (dispatch) => {
   }
 };
 
+//register teacher
 export const registerTeacher =
   (name, subject, email, password) => async (dispatch) => {
     try {
@@ -120,6 +154,7 @@ export const getAllEnrolledStudents = () => async (dispatch) => {
   }
 };
 
+//fetch all students
 export const allStudents = () => async (dispatch) => {
   try {
     dispatch({
@@ -149,6 +184,7 @@ export const allStudents = () => async (dispatch) => {
   }
 };
 
+//search student
 export const searchStudents = (key) => async (dispatch) => {
   try {
     dispatch({
@@ -178,6 +214,7 @@ export const searchStudents = (key) => async (dispatch) => {
   }
 };
 
+//per student profile
 export const profileStudent = (id) => async (dispatch) => {
   try {
     dispatch({
@@ -207,35 +244,7 @@ export const profileStudent = (id) => async (dispatch) => {
   }
 };
 
-export const enrollNewStudent = (id) => async (dispatch) => {
-  try {
-    dispatch({
-      type: "EnrollNewRequest",
-    });
-
-    const config = {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-      sameSite: "None",
-    };
-
-    const { data } = await axios.post(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/enroll/${id}`,
-      config
-    );
-
-    dispatch({
-      type: "EnrollNewSuccess",
-      payload: data.student,
-    });
-  } catch (error) {
-    dispatch({
-      type: "EnrollNewFailure",
-      payload: error.response.data.message,
-    });
-  }
-};
-
+//logout teacher
 export const logoutTeacher = () => async (dispatch) => {
   try {
     dispatch({

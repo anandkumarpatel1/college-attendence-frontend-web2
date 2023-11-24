@@ -2,6 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 
 const initialState = {};
 
+//teacher login reducer
 export const teacherLoginReducer = createReducer(initialState, {
   LoginRequest: (state) => {
     state.loading = true;
@@ -37,6 +38,7 @@ export const teacherLoginReducer = createReducer(initialState, {
   },
 });
 
+//teacher logout reducer
 export const teacherLogoutReducer = createReducer(initialState, {
   LogoutRequest: (state) => {
     state.loading = true;
@@ -59,6 +61,7 @@ export const teacherLogoutReducer = createReducer(initialState, {
   },
 });
 
+//teacehr load reducer
 export const teacherLoadReducer = createReducer(initialState, {
   LoadRequest: (state) => {
     state.loading = true;
@@ -81,6 +84,7 @@ export const teacherLoadReducer = createReducer(initialState, {
   },
 });
 
+//fetch enrolled students reducer
 export const enrolledStudentsReducer = createReducer(initialState, {
   EnrolledStudentsRequest: (state) => {
     state.loading = true;
@@ -103,6 +107,7 @@ export const enrolledStudentsReducer = createReducer(initialState, {
   },
 });
 
+//fetch all students reducer
 export const allStudentsReducer = createReducer(initialState, {
   AllStudentsRequest: (state) => {
     state.loading = true;
@@ -123,6 +128,7 @@ export const allStudentsReducer = createReducer(initialState, {
   },
 });
 
+//searching students reducer
 export const searchStudentsReducer = createReducer(initialState, {
   SearchStudentRequest: (state) => {
     state.loading = true;
@@ -143,6 +149,7 @@ export const searchStudentsReducer = createReducer(initialState, {
   },
 });
 
+// per student profile reducer
 export const profileStudentsReducer = createReducer(initialState, {
   ProfileStudentRequest: (state) => {
     state.loading = true;
@@ -150,10 +157,12 @@ export const profileStudentsReducer = createReducer(initialState, {
   ProfileStudentSuccess: (state, action) => {
     state.loading = false;
     state.student = action.payload;
+    state.isAuthenticated = true;
   },
   ProfileStudentFailure: (state, action) => {
     state.loading = false;
     state.error = action.payload;
+    state.isAuthenticated = false;
   },
   clearError: (state) => {
     state.error = null;
@@ -163,15 +172,16 @@ export const profileStudentsReducer = createReducer(initialState, {
   },
 });
 
+// new student enroll reducer
 export const enrollNewStudentReducer = createReducer(initialState, {
-  EnrollNewRequest: (state) => {
+  EnrollNewStuRequest: (state) => {
     state.loading = true;
   },
-  EnrollNewSuccess: (state, action) => {
+  EnrollNewStuSuccess: (state, action) => {
     state.loading = false;
     state.action = action.payload;
   },
-  EnrollNewFailure: (state, action) => {
+  EnrollNewStuFailure: (state, action) => {
     state.loading = false;
     state.error = action.payload;
   },

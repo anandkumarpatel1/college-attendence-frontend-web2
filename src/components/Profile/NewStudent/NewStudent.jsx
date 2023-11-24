@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./NewStudent.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { profileStudent } from "../../../action/Teacher";
+import { enrollNewStudent, profileStudent } from "../../../action/Teacher";
 import { useParams } from "react-router-dom";
 import itachi from "../../../assests/itachi.png";
+import { Skeleton } from "@mui/material";
 
 const NewStudent = () => {
-  const [enrolled, setEnrolled] = useState('unenrolled');
+  const [enrolled, setEnrolled] = useState("unenrolled");
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -19,46 +20,78 @@ const NewStudent = () => {
   const { teacher } = useSelector((state) => state.teacherLoad);
 
   let data = student?.teacher;
-  data = data?.indexOf(teacher?._id)
+  data = data?.indexOf(teacher?._id);
 
-
-  // for(let i = 0; i < data?.length; i++){
-  //   if(id === data[i]){
-  //     setEnrolled('Enrolled')
-  //     console.log(data[i], id)
-  //     break;
-  //   }
-  // }
+  const enrolleHandler = () =>{
+    dispatch(enrollNewStudent(id))
+  }
 
   return (
     <>
-      <div className="NewstudentProfile">
-        <div>{student?.name}'s Profile</div>
-        <div>
+      {loading ? (
+        <div className="newStuProfileLoad">
+          <Skeleton
+            variant="rounded"
+            width="95%"
+            height={80}
+            animation="wave"
+            sx={{ bgcolor: "grey.800" }}
+            style={{ marginTop: 20, borderRadius: 30 }}
+          />
+          <Skeleton
+            variant="rounded"
+            width={170}
+            height={170}
+            animation="wave"
+            sx={{ bgcolor: "grey.800" }}
+            style={{ marginTop: 80, borderRadius: "100%", marginBottom: 80 }}
+          />
+
+          {[1, 1, 1, 1, 1, 1].map((item, index) => (
+            <Skeleton
+              key={index}
+              variant="rounded"
+              width="95%"
+              height={22}
+              animation="wave"
+              sx={{ bgcolor: "grey.800" }}
+              style={{ marginTop: 5, borderRadius: 30 }}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="NewstudentProfile">
+          <div>{student?.name}'s Profile</div>
           <div>
-            <img src={itachi} alt={itachi} />
+            <div>
+              <img src={itachi} alt={itachi} />
+            </div>
+            <div>
+              <div>
+                <p>Name</p>
+                <p>Branch</p>
+                <p>Semester</p>
+                <p>Reg No</p>
+                <p>Semester RollNo</p>
+                <p>ID</p>
+                <p>Status</p>
+              </div>
+              <div>
+                <p>: {student?.name}</p>
+                <p>: {student?.branch}</p>
+                <p>: {student?.semester}th</p>
+                <p>: {student?.regNo}</p>
+                <p>: {student?.semRollNo}</p>
+                <p>: {student?._id}</p>
+                <p style={{color: `${data === -1 ? 'red': 'green'}`, fontWeight: 700, fontSize: 20}}>: {data !== -1 ? "Enrolled" : "Unenrolled"}</p>
+              </div>
+            </div>
           </div>
           <div>
-            <div>
-              <p>Name</p>
-              <p>Branch</p>
-              <p>Semester</p>
-              <p>Reg No</p>
-              <p>Semester RollNo</p>
-              <p>ID</p>
-            </div>
-            <div>
-              <p>: {student?.name}</p>
-              <p>: {student?.branch}</p>
-              <p>: {student?.semester}th</p>
-              <p>: {student?.regNo}</p>
-              <p>: {student?.semRollNo}</p>
-              <p>: {student?._id}</p>
-              <p>: {data !== -1  ? 'Enrolled' : 'Unenrolled'}</p>
-            </div>
+            <button style={{color: `${data === -1 ? 'red': 'green'}`, fontWeight: 700, fontSize: 20}} onClick={enrolleHandler}>{data !== -1 ? "Enrolled" : "Unenrolled"}</button>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
