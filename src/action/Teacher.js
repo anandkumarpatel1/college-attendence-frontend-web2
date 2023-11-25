@@ -33,34 +33,35 @@ export const loginTeacher = (email, password) => async (dispatch) => {
 
 //enroll new student
 export const enrollNewStudent = (id) => async (dispatch) => {
-try {
-  dispatch({
-    type: "EnrollNewStuRequest",
-  });
+  try {
+    dispatch({
+      type: "EnrollNewStuRequest",
+    });
 
-  const config = {
-    headers: { "Content-Type": "application/json" },
-    withCredentials: true,
-    sameSite: "None",
-  };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+      sameSite: "None",
+    };
 
-  const { data } = await axios.post(
-    `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/enroll/${id}`,
-    config
-  );
+    const { data } = await axios.get(
+      `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/enroll/${id}`,
+      config
+    );
 
-  dispatch({
-    type: "EnrollNewStuSuccess",
-    payload: data.teacher,
-  });
-
-} catch (error) {
-  dispatch({
-    type: "EnrollNewStuFailure",
-    payload: error.response.data.message,
-  });
-}
-}
+    dispatch({
+      type: "EnrollNewStuSuccess",
+      payload: data.teacher,
+    });
+  } catch (error) {
+    dispatch({
+      type: "EnrollNewStuFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
 
 //load teacher
 export const loadTeacher = () => async (dispatch) => {

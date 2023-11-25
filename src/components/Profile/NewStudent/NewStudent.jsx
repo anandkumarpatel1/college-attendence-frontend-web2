@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, } from "react";
 import "./NewStudent.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { enrollNewStudent, profileStudent } from "../../../action/Teacher";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import itachi from "../../../assests/itachi.png";
 import { Skeleton } from "@mui/material";
 
 const NewStudent = () => {
-  const [enrolled, setEnrolled] = useState("unenrolled");
+  const navigate = useNavigate()  
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -24,6 +24,8 @@ const NewStudent = () => {
 
   const enrolleHandler = () =>{
     dispatch(enrollNewStudent(id))
+    alert('Student Enrolled Successful')
+    navigate('/allstudents')
   }
 
   return (

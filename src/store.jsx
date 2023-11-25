@@ -11,7 +11,7 @@ const store = configureStore({
     allStudents: allStudentsReducer,
     searchStudents: searchStudentsReducer,
     studentProfile: profileStudentsReducer,
-    enrollNewStudent: enrollNewStudentReducer
+    // enrollNewStudent: enrollNewStudentReducer
   },
 });
 

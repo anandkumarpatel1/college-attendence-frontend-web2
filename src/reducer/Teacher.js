@@ -164,16 +164,6 @@ export const profileStudentsReducer = createReducer(initialState, {
     state.error = action.payload;
     state.isAuthenticated = false;
   },
-  clearError: (state) => {
-    state.error = null;
-  },
-  clearMessage: (state) => {
-    state.message = null;
-  },
-});
-
-// new student enroll reducer
-export const enrollNewStudentReducer = createReducer(initialState, {
   EnrollNewStuRequest: (state) => {
     state.loading = true;
   },
