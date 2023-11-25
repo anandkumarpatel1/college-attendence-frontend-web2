@@ -75,6 +75,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  > div {
+    display: flex;
+    width: 100%;
+
+    > div {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    > :last-child {
+      flex-direction: column;
+    }
+  }
+
+  > :last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -118,6 +141,24 @@
         font-size: 15px;
         padding: 15px;
       }
+    }
+  }
+
+  .newStuProfileLoad {
+    > div {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      > :last-child {
+        width: 100%;
+        flex-direction: column;
+      }
+    }
+
+    > :last-child {
+      flex-direction: column;
+      width: 90%;
     }
   }
 }
