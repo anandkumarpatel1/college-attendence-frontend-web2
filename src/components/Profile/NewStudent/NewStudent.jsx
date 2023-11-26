@@ -24,8 +24,8 @@ const NewStudent = () => {
   data = data?.indexOf(teacher?._id);
 
   const enrolleHandler = () => {
-    if (data === 1) {
-      alert("Student is alreadt enrolled");
+    if (data !== -1) {
+      alert("Student is already enrolled");
     } else {
       dispatch(enrollNewStudent(id));
       navigate("/allstudents");

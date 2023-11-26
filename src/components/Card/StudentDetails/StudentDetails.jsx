@@ -1,24 +1,37 @@
-import { Button, Skeleton } from "@mui/material";
-import React from "react";
-import { useDispatch } from "react-redux";
-import { profileStudent } from "../../../action/Teacher";
-import { json, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { presentAttendence, profileStudent } from "../../../action/Teacher";
 
-const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo, present, absent }) => {
+const StudentDetails = ({
+  name,
+  id,
+  branch,
+  semRollNo,
+  semester,
+  regNo,
+  present,
+  absent,
+}) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const navigate = useNavigate()
+  const { loading, student } = useSelector((state) => state.studentProfile);
 
-  const studentDetailsCardHandler = () =>{
-    navigate(`/student/${id}`)
-    localStorage.setItem("present", JSON.stringify(present))
-    localStorage.setItem("absent", JSON.stringify(absent))
-  }
+  const studentDetailsCardHandler = () => {
 
-  const presentHandler = () =>{
-    console.log('helo')
-  }
+    localStorage.setItem("present", JSON.stringify(student?.present));
+    localStorage.setItem("absent", JSON.stringify(absent));
+    navigate(`/student/${id}`);
+  };
+
+  const PresentHandler = () => {
+    dispatch(profileStudent(id));
+    dispatch(presentAttendence(id));
+  };
   return (
-    <div className="studentDetailsCard" >
+    <div className="studentDetailsCard">
       <div onClick={studentDetailsCardHandler}>
         <div>
           <h4>Name: </h4>
@@ -36,8 +49,10 @@ const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo, present,
         </div>
       </div>
       <div>
-      <Button variant="outlined">Present</Button>
-      <Button variant="outlined">Absent</Button>
+        <Button variant="outlined" onClick={PresentHandler}>
+          Present
+        </Button>
+        <Button variant="outlined">Absent</Button>
       </div>
     </div>
   );

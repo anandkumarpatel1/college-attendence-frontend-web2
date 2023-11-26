@@ -253,7 +253,9 @@ export const logoutTeacher = () => async (dispatch) => {
     });
 
     const config = {
+      headers: { "Content-Type": "application/json" },
       withCredentials: true,
+      sameSite: "None",
     };
 
     const { data } = await axios.get(
@@ -267,6 +269,36 @@ export const logoutTeacher = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "LogoutFailure",
+      payload: error.response.data.message,
+    });
+  }
+};
+
+//adding present attendence student
+export const presentAttendence = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "PresentAttendenceRequest",
+    });
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+      sameSite: "None",
+    };
+
+    const { data } = await axios.get(
+      `https://college-attendence-backend-sp8j.vercel.app/api/v1/attendence/present/student/${id}`,
+      config
+    );
+
+    dispatch({
+      type: "PresentAttendenceSuccess",
+      payload: data.student,
+    });
+  } catch (error) {
+    dispatch({
+      type: "PresentAttendenceFailure",
       payload: error.response.data.message,
     });
   }

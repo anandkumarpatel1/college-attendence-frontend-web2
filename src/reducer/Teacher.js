@@ -164,6 +164,8 @@ export const profileStudentsReducer = createReducer(initialState, {
     state.error = action.payload;
     state.isAuthenticated = false;
   },
+
+  //Enroll new student reducer
   EnrollNewStuRequest: (state) => {
     state.loading = true;
   },
@@ -172,6 +174,19 @@ export const profileStudentsReducer = createReducer(initialState, {
     state.action = action.payload;
   },
   EnrollNewStuFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
+
+  //present attendece reudcer
+  PresentAttendenceRequest: (state) => {
+    state.loading = true;
+  },
+  PresentAttendenceSuccess: (state, action) => {
+    state.loading = false;
+    state.student = action.payload;
+  },
+  PresentAttendenceFailure: (state, action) => {
     state.loading = false;
     state.error = action.payload;
   },

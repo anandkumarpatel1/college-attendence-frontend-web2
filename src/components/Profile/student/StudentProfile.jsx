@@ -12,7 +12,7 @@ import Calendar from "react-awesome-calendar";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const StudentProfile = () => {
-  const [ass, setAss] = useState('') 
+  const [ass, setAss] = useState("");
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -26,24 +26,23 @@ const StudentProfile = () => {
 
   let i = 0;
   let y = 0;
-  let present = localStorage.getItem('present')
-  let absent = localStorage.getItem('absent')
-  present = JSON.parse(present)
-  absent = JSON.parse(absent)
-  for(let x of present){
-    if(teacher?._id === x?._id){
+  let present = localStorage.getItem("present");
+  let absent = localStorage.getItem("absent");
+  present = JSON.parse(present);
+  absent = JSON.parse(absent);
+  for (let x of present) {
+    if (teacher?._id === x?._id) {
       i++;
     }
   }
 
-  for(let x of absent){
-    if(teacher?._id === x?._id){
-      y++
+  for (let x of absent) {
+    if (teacher?._id === x?._id) {
+      y++;
     }
   }
 
   const total = i + y;
-
 
   let events = student?.present.map((item, index) => ({
     key: index,
@@ -64,7 +63,6 @@ const StudentProfile = () => {
 
   events = events?.concat(events2);
 
-
   const data = {
     labels: ["Absent", "Present"],
     datasets: [
@@ -78,66 +76,67 @@ const StudentProfile = () => {
     ],
   };
 
-
-  
-
-
   return (
     <>
       {loading ? (
         <>
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, index) => (
-            <div key={index}>
+          <div className="studentProfileLoading">
+            <Skeleton
+              variant="rounded"
+              width="95%"
+              height={80}
+              animation="wave"
+              sx={{ bgcolor: "grey.900" }}
+              style={{ marginTop: 10, borderRadius: 30 }}
+            />
+            <div>
+              <div>
+                <Skeleton
+                  variant="rounded"
+                  width={190}
+                  height={190}
+                  animation="wave"
+                  sx={{ bgcolor: "grey.900" }}
+                  style={{ marginTop: 10, borderRadius: "100%" }}
+                />
+              </div>
+              <div>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
+                  <Skeleton
+                    key={item}
+                    variant="rounded"
+                    width="80%"
+                    height={20}
+                    animation="wave"
+                    sx={{ bgcolor: "grey.900" }}
+                    style={{ marginTop: 10, borderRadius: 30 }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div>
               <Skeleton
                 variant="rounded"
                 width="100%"
-                height={60}
+                height={350}
                 animation="wave"
                 sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
-              />
-              <Skeleton
-                variant="rounded"
-                width="100%"
-                height={20}
-                animation="wave"
-                sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
-              />
-              <Skeleton
-                variant="rounded"
-                width="100%"
-                height={20}
-                animation="wave"
-                sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
-              />
-              <Skeleton
-                variant="rounded"
-                width="100%"
-                height={20}
-                animation="wave"
-                sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
-              />
-              <Skeleton
-                variant="rounded"
-                width="100%"
-                height={20}
-                animation="wave"
-                sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
-              />
-              <Skeleton
-                variant="rounded"
-                width="100%"
-                height={20}
-                animation="wave"
-                sx={{ bgcolor: "grey.900" }}
-                style={{ marginTop: 10, borderRadius: 30 }}
+                style={{ marginTop: 10, borderRadius: "100%" }}
               />
             </div>
-          ))}
+
+            <div>
+              <Skeleton
+                variant="rounded"
+                width="90%"
+                height={600}
+                animation="wave"
+                sx={{ bgcolor: "grey.900" }}
+                style={{ marginTop: 10, borderRadius: 25 }}
+              />
+            </div>
+          </div>
         </>
       ) : (
         <div className="studentProfile">
@@ -167,11 +166,10 @@ const StudentProfile = () => {
                 <p>: {student?.semRollNo}</p>
                 <p>: {student?._id}</p>
                 <p>
-                  : {i} Day (
-                  {(i * 100) / (i+y)}%)
+                  : {i} Day ({(i * 100) / (i + y)}%)
                 </p>
                 <p>: {y} Day</p>
-                <p>: {i+y} Day</p>
+                <p>: {i + y} Day</p>
               </div>
             </div>
           </div>
