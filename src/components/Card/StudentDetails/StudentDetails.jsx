@@ -11,8 +11,6 @@ const StudentDetails = ({
   semRollNo,
   semester,
   regNo,
-  present,
-  absent,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,9 +18,8 @@ const StudentDetails = ({
   const { loading, student } = useSelector((state) => state.studentProfile);
 
   const studentDetailsCardHandler = () => {
-
-    localStorage.setItem("present", JSON.stringify(student?.present));
-    localStorage.setItem("absent", JSON.stringify(absent));
+    dispatch(profileStudent(id));
+    localStorage.setItem('present', student?.present)
     navigate(`/student/${id}`);
   };
 

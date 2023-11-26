@@ -13,9 +13,9 @@ const EnrolledStudents = () => {
     dispatch(allStudents());
   }, [dispatch]);
 
-  const { student, loading } = useSelector((state) => state.allStudents);
+  // const { student, loading } = useSelector((state) => state.allStudents);
 
-  const { teacher } = useSelector((state) => state.teacherLoad);
+  const { loading, teacher } = useSelector((state) => state.teacherLoad);
 
   return (
     <>
@@ -91,8 +91,6 @@ const EnrolledStudents = () => {
                 semester={item?.semester}
                 semRollNo={item?.semRollNo}
                 regNo={item?.regNo}
-                present={item?.present}
-                absent={item?.absent}
               />
             ))}
           </>

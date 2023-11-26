@@ -16,59 +16,59 @@ const StudentProfile = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(profileStudent(id));
-  }, [dispatch]);
+  // useEffect(()=>{
+  //   dispatch(profileStudent(id))
+  // }, [dispatch, id])
 
   const { loading, student } = useSelector((state) => state.studentProfile);
+  console.log(student);
 
   const { teacher } = useSelector((state) => state.teacherLoad);
 
   let i = 0;
   let y = 0;
-  let present = localStorage.getItem("present");
-  let absent = localStorage.getItem("absent");
-  present = JSON.parse(present);
-  absent = JSON.parse(absent);
-  for (let x of present) {
-    if (teacher?._id === x?._id) {
-      i++;
-    }
-  }
 
-  for (let x of absent) {
-    if (teacher?._id === x?._id) {
-      y++;
-    }
-  }
-
-  const total = i + y;
-
-  let events = student?.present.map((item, index) => ({
+  let events = student?.present?.map((item, index) => ({
     key: index,
     id: 1,
     color: "blue",
-    from: `${item.date}`,
-    to: `${item.date}`,
+    from: `${item?.date}`,
+    to: `${item?.date}`,
     title: "Present",
   }));
-  let events2 = student?.absent.map((item, index) => ({
+  let events2 = student?.absent?.map((item, index) => ({
     key: index,
     id: 1,
     color: "red",
-    from: `${item.date}`,
-    to: `${item.date}`,
+    from: `${item?.date}`,
+    to: `${item?.date}`,
     title: "Absent",
   }));
 
   events = events?.concat(events2);
+
+  if (student) {
+    for (let x of student?.present) {
+      if (teacher?._id === x?._id) {
+        i++;
+      }
+    }
+
+    for (let x of student?.absent) {
+      if (teacher?._id === x?._id) {
+        y++;
+      }
+    }
+  }
+
+  const total = i + y;
 
   const data = {
     labels: ["Absent", "Present"],
     datasets: [
       {
         label: "Attendence Day of",
-        data: [total - i, y],
+        data: [i, y],
         backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
         borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
         borderWidth: 1,
@@ -101,7 +101,7 @@ const StudentProfile = () => {
                 />
               </div>
               <div>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9]?.map((item, index) => (
                   <Skeleton
                     key={item}
                     variant="rounded"

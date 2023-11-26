@@ -6,9 +6,9 @@ import EastIcon from "@mui/icons-material/East";
 import MobileFriendlyIcon from "@mui/icons-material/MobileFriendly";
 import AppShortcutIcon from "@mui/icons-material/AppShortcut";
 import TrackVisibility from "react-on-screen";
+import founder from '../../assests/dev1.jpg'
 
 const Home = () => {
-  console.log("hoem ");
   return (
     <>
       <div className="HomeCont">
