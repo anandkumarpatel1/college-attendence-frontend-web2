@@ -41,7 +41,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={60}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -49,7 +48,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -57,7 +55,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -65,7 +62,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -73,7 +69,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -81,7 +76,6 @@ const EnrolledStudents = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                 </div>

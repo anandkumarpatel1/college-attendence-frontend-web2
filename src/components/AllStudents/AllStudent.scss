@@ -1,4 +1,4 @@
-.allStudentcardLoad{
+.allStudentcardLoad {
   width: 500px;
   margin-top: 30px;
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -6,7 +6,7 @@
   padding: 30px;
 }
 
-.allStudentCont{
+.allStudentCont {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -18,17 +18,20 @@
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 100px;
+  background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 
-  >:first-child {
+  > :first-child {
     width: 96vw;
     border: 1px solid rgba(255, 255, 255, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
     padding: 30px;
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: 800;
     margin-top: 10px;
   }
 }

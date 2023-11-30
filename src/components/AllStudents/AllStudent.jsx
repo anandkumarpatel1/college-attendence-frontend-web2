@@ -4,6 +4,7 @@ import StudentCard from "../Card/StudentCard/StudentCard";
 import { useDispatch, useSelector } from "react-redux";
 import { allStudents } from "../../action/Teacher";
 import { Skeleton } from "@mui/material";
+import Alert from "../Card/Alert/Alert";
 
 const AllStudent = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ const AllStudent = () => {
     dispatch(allStudents());
   }, [dispatch]);
   const { loading, student } = useSelector((state) => state.allStudents);
+
+  const { error, message } = useSelector(
+    (state) => state.studentProfile
+  );
 
 
   return (
@@ -24,9 +29,9 @@ const AllStudent = () => {
               width="98%"
               height={80}
               animation="wave"
-              sx={{ bgcolor: "grey.900" }}
               style={{ marginTop: 10, borderRadius: 30, border: '1px solid rgba(255, 255, 255, 0.8)' }}
             />
+
             {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(
               (item, index) => (
                 <div className="allStudentcardLoad" key={index}>
@@ -35,7 +40,6 @@ const AllStudent = () => {
                     width="100%"
                     height={60}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -43,7 +47,6 @@ const AllStudent = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -51,7 +54,6 @@ const AllStudent = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -59,7 +61,6 @@ const AllStudent = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -67,7 +68,6 @@ const AllStudent = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                   <Skeleton
@@ -75,7 +75,6 @@ const AllStudent = () => {
                     width="100%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                 </div>
@@ -86,6 +85,16 @@ const AllStudent = () => {
       ) : (
         <div className="allStuCont">
           <div>All Enrolled/Unenrolled Students</div>
+          {message && (
+          <div className="alert-cont">
+            <Alert message={message} />
+          </div>
+        )}
+        {error && (
+          <div className="alert-cont">
+            <Alert message={error} />
+          </div>
+        )}
           {student?.map((item, index) => (
             <StudentCard
               key={index}

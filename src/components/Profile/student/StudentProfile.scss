@@ -1,5 +1,7 @@
 .studentProfile {
-  color: white;
+  background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,8 +14,8 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    font-size: 20px;
-    background: rgba(255, 255, 255, 0.3);
+    font-size: 40px;
+    font-weight: 800;
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.8);
     margin: 20px;
@@ -37,10 +39,11 @@
 
       > button {
         margin-top: 50px;
-        color: white;
         border-radius: 25px;
+        font-weight: 700;
         border: none;
         border: 1px solid rgba(255, 255, 255, 0.8);
+        -webkit-text-fill-color: blue;      
         background: rgba(255, 255, 255, 0.3);
       }
     }
@@ -53,6 +56,7 @@
 
       > div {
         width: 50%;
+        font-weight: 700;
       }
     }
   }
@@ -64,14 +68,21 @@
     margin-top: 60px;
 
     > button {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(56, 182, 199, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 25px;
       border: none;
       color: white;
       margin: 0px 60px;
+      -webkit-text-fill-color: blue;
       font-size: 15px;
-      font-weight: 700;
-      padding: 10px;
+      font-weight: 800;
+      padding: 20px;
+      transition: all 0.3s;
+    }
+
+    >button:hover{
+      scale: 0.9;
     }
   }
 }
@@ -96,49 +107,54 @@
 
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
   margin-bottom: 100px;
 
   .calendarWrapper {
-    color: white;
+    color: black;
   }
 
   .modeWrapper {
-    color: white !important;
+    color: black !important;
+  }
+
+  .dayCell{
+    -webkit-text-fill-color: blue;
+    
   }
 }
 
-.studentProfileLoading{
+.studentProfileLoading {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
 
-  >:nth-child(2){
-    margin-top:100px;
+  > :nth-child(2) {
+    margin-top: 100px;
     display: flex;
     width: 100%;
 
-    >div{
+    > div {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 50%;
     }
 
-    >:last-child{
+    > :last-child {
       flex-direction: column;
     }
   }
 
-  >:nth-child(3){
+  > :nth-child(3) {
     width: 20%;
     height: 20%;
     margin-top: 150px;
   }
 
-  >:nth-child(4){
+  > :nth-child(4) {
     width: 100%;
     margin-top: 150px;
     display: flex;
@@ -205,25 +221,24 @@
     }
   }
 
-  .studentProfileLoading{
-  
-    >:nth-child(2){
+  .studentProfileLoading {
+    > :nth-child(2) {
       flex-direction: column;
-  
-      >div{
+
+      > div {
         width: 100%;
       }
-  
-      >:last-child{
+
+      > :last-child {
         margin-top: 30px;
       }
     }
-  
-    >:nth-child(3){
+
+    > :nth-child(3) {
       width: 90%;
     }
-  
-    >:nth-child(4){
+
+    > :nth-child(4) {
       width: 100%;
       margin-top: 150px;
       display: flex;

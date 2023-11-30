@@ -16,6 +16,7 @@ function Teacher() {
   }, [dispatch]);
 
   const { loading, teacher } = useSelector((state) => state.teacherLoad);
+ 
 
   const EnrollnewHand = () => {
     navigate("/allstudents");
@@ -34,7 +35,6 @@ function Teacher() {
           width="95%"
           height={80}
           animation="wave"
-          sx={{ bgcolor: "grey.800" }}
           style={{ marginTop: 20, borderRadius: 30 }}
         />
 
@@ -45,7 +45,6 @@ function Teacher() {
               width={170}
               height={170}
               animation="wave"
-              sx={{ bgcolor: "grey.800" }}
               style={{
                 marginTop: 80,
                 borderRadius: "100%",
@@ -62,7 +61,6 @@ function Teacher() {
                 width="95%"
                 height={22}
                 animation="wave"
-                sx={{ bgcolor: "grey.800" }}
                 style={{ marginTop: 5, borderRadius: 30 }}
               />
             ))}
@@ -75,7 +73,6 @@ function Teacher() {
             width="65%"
             height={60}
             animation="wave"
-            sx={{ bgcolor: "grey.800" }}
             style={{ marginTop: 60, borderRadius: 30 }}
           />
         </div>

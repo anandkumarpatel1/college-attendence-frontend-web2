@@ -47,11 +47,11 @@ const Home = () => {
           </div>
           <div>
             <div>
-              <hr />
+
             </div>
             <div>Features</div>
             <div>
-              <hr />
+
             </div>
           </div>
           <div>

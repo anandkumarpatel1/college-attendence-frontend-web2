@@ -303,3 +303,36 @@ export const presentAttendence = (id) => async (dispatch) => {
     });
   }
 };
+
+//creating new student
+export const newStudent =
+  (name, image, regNo, password, semRollNo, branch, semester) =>
+  async (dispatch) => {
+    try {
+      dispatch({
+        type: "NewStuRequest",
+      });
+
+      const config = {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+        sameSite: "None",
+      };
+
+      const { data } = await axios.get(
+        `https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher/createstudent`,
+        { name, image, regNo, password, semRollNo, branch, semester },
+        config
+      );
+
+      dispatch({
+        type: "NewStuSuccess",
+        payload: data.student,
+      });
+    } catch (error) {
+      dispatch({
+        type: "NewStuFailure",
+        payload: error.response.data.message,
+      });
+    }
+  };

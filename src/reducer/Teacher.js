@@ -122,6 +122,17 @@ export const allStudentsReducer = createReducer(initialState, {
     state.loading = false;
     state.error = action.payload;
   },
+  NewStuRequest: (state) => {
+    state.loading = true;
+  },
+  NewStuSuccess: (state, action) => {
+    state.loading = false;
+    state.student = action.payload;
+  },
+  NewStuFailure: (state, action) => {
+    state.loading = false;
+    state.error = action.payload;
+  },
   clearError: (state) => {
     state.error = null;
   },
@@ -173,6 +184,7 @@ export const profileStudentsReducer = createReducer(initialState, {
   },
   EnrollNewStuSuccess: (state, action) => {
     state.loading = false;
+    state.message = 'Student Enrolled Success'
     state.action = action.payload;
   },
   EnrollNewStuFailure: (state, action) => {

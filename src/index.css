@@ -7,5 +7,9 @@
 }
 
 body{
-  background-color: black;
+  background: linear-gradient(
+    90deg,
+    rgb(0, 255, 200) 21%,
+    rgba(96, 239, 255, 1) 100%
+  );
 }

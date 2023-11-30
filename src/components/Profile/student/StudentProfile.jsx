@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./StudentProfile.scss";
 // import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,7 +12,6 @@ import Calendar from "react-awesome-calendar";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const StudentProfile = () => {
-  // const [ass, setAss] = useState("");
   // const { id } = useParams();
   // const dispatch = useDispatch();
 
@@ -75,6 +74,7 @@ const StudentProfile = () => {
     ],
   };
 
+
   return (
     <>
       {loading ? (
@@ -85,7 +85,6 @@ const StudentProfile = () => {
               width="95%"
               height={80}
               animation="wave"
-              sx={{ bgcolor: "grey.900" }}
               style={{ marginTop: 10, borderRadius: 30 }}
             />
             <div>
@@ -95,7 +94,6 @@ const StudentProfile = () => {
                   width={190}
                   height={190}
                   animation="wave"
-                  sx={{ bgcolor: "grey.900" }}
                   style={{ marginTop: 10, borderRadius: "100%" }}
                 />
               </div>
@@ -107,7 +105,6 @@ const StudentProfile = () => {
                     width="80%"
                     height={20}
                     animation="wave"
-                    sx={{ bgcolor: "grey.900" }}
                     style={{ marginTop: 10, borderRadius: 30 }}
                   />
                 ))}
@@ -120,7 +117,6 @@ const StudentProfile = () => {
                 width="100%"
                 height={350}
                 animation="wave"
-                sx={{ bgcolor: "grey.900" }}
                 style={{ marginTop: 10, borderRadius: "100%" }}
               />
             </div>
@@ -131,7 +127,6 @@ const StudentProfile = () => {
                 width="90%"
                 height={600}
                 animation="wave"
-                sx={{ bgcolor: "grey.900" }}
                 style={{ marginTop: 10, borderRadius: 25 }}
               />
             </div>
@@ -142,8 +137,7 @@ const StudentProfile = () => {
           <div>{student?.name}'s Profile</div>
           <div>
             <div>
-              <img src={itachi} alt={itachi} />
-              <Button variant="outlined">Edit Profile</Button>
+              <img src='http://drive.google.com/uc?export=view&id=1yxARgpR_w-LRwRzXVEoj-8dE7-zRLMT4' alt={itachi} />
             </div>
             <div>
               <div>
