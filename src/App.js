@@ -51,7 +51,6 @@ const App = () => {
                         width="100%"
                         height={300}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -59,7 +58,6 @@ const App = () => {
                         width="100%"
                         height={200}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -67,7 +65,6 @@ const App = () => {
                         width="100%"
                         height={100}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -75,7 +72,6 @@ const App = () => {
                         width="100%"
                         height={100}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                     </div>
@@ -85,7 +81,6 @@ const App = () => {
                         width="100%"
                         height={300}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -93,7 +88,6 @@ const App = () => {
                         width="100%"
                         height={200}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -101,7 +95,6 @@ const App = () => {
                         width="100%"
                         height={100}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                       <Skeleton
@@ -109,7 +102,6 @@ const App = () => {
                         width="100%"
                         height={100}
                         animation="wave"
-                        sx={{ bgcolor: "grey.900" }}
                         style={{ marginTop: 10, borderRadius: 30 }}
                       />
                     </div>
