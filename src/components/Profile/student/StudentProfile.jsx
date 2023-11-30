@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./StudentProfile.scss";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { profileStudent } from "../../../action/Teacher";
+// import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { profileStudent } from "../../../action/Teacher";
 import { Button, Skeleton } from "@mui/material";
 import itachi from "../../../assests/itachi.png";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -12,16 +12,15 @@ import Calendar from "react-awesome-calendar";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const StudentProfile = () => {
-  const [ass, setAss] = useState("");
-  const { id } = useParams();
-  const dispatch = useDispatch();
+  // const [ass, setAss] = useState("");
+  // const { id } = useParams();
+  // const dispatch = useDispatch();
 
   // useEffect(()=>{
   //   dispatch(profileStudent(id))
   // }, [dispatch, id])
 
   const { loading, student } = useSelector((state) => state.studentProfile);
-  console.log(student);
 
   const { teacher } = useSelector((state) => state.teacherLoad);
 
@@ -61,7 +60,7 @@ const StudentProfile = () => {
     }
   }
 
-  const total = i + y;
+  // const total = i + y;
 
   const data = {
     labels: ["Absent", "Present"],

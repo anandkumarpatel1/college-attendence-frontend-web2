@@ -14,6 +14,7 @@ import About from "./components/Home/About/About";
 import AddNewStu from "./components/EnrolledStudents/AddNewStudent/AddNewStu";
 import AllStudent from "./components/AllStudents/AllStudent";
 import NewStudent from "./components/Profile/NewStudent/NewStudent";
+import Alert from "./components/Card/Alert/Alert";
 
 const App = () => {
   const [root, setRoot] = useState(window.location.pathname);
@@ -146,6 +147,8 @@ const App = () => {
           <Route path="/allstudents" element={<AllStudent />} />
 
           <Route path="/new-student/:id" element={<NewStudent />} />
+
+          <Route path="/alert" element={<Alert />} />
         </Routes>
         {isAuthenticated && a && <BottomNavbar />}
       </BrowserRouter>

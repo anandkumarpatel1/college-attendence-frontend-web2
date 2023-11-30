@@ -20,6 +20,7 @@ input {
   min-height: 100vh;
   overflow: hidden;
   transition: all 0.5s;
+  z-index: 1;
 }
 
 .forms-container {

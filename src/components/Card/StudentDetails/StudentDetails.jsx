@@ -1,25 +1,37 @@
 import { Button } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { presentAttendence, profileStudent } from "../../../action/Teacher";
+import Alert from "../Alert/Alert";
 
-const StudentDetails = ({
-  name,
-  id,
-  branch,
-  semRollNo,
-  semester,
-  regNo,
-}) => {
+const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { loading, student } = useSelector((state) => state.studentProfile);
+  const [present, setPresent] = useState(false);
+
+  useEffect(() => {
+    dispatch(profileStudent(id));
+  }, [dispatch, id]);
+
+  const { loading, student } = useSelector(
+    (state) => state.studentProfile
+  );
+
+  const date = new Date();
+  // console.log(date.toString())
+
+  if (student) {
+    let m, d;
+    let len = student?.present;
+    // len = student?.present
+    console.log(len);
+  }
 
   const studentDetailsCardHandler = () => {
     dispatch(profileStudent(id));
-    localStorage.setItem('present', student?.present)
+    localStorage.setItem("present", student?.present);
     navigate(`/student/${id}`);
   };
 

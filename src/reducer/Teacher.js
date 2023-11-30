@@ -10,12 +10,13 @@ export const teacherLoginReducer = createReducer(initialState, {
   LoginSuccess: (state, action) => {
     state.loading = false;
     state.teacher = action.payload;
+    state.message = `Login Successful, Welcome Back`
     state.isAuthenticated = true;
   },
   LoginFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = false;
-    state.error = action.error;
+    state.error = action.payload;
   },
   RegisterRequest: (state) => {
     state.loading = true;
@@ -28,7 +29,7 @@ export const teacherLoginReducer = createReducer(initialState, {
   RegisterFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = false;
-    state.error = action.error;
+    state.error = action.payload;
   },
   clearError: (state) => {
     state.error = null;
@@ -45,13 +46,14 @@ export const teacherLogoutReducer = createReducer(initialState, {
   },
   LogoutSuccess: (state, action) => {
     state.loading = false;
+    state.message = 'Logout Successful, Come Again'
     state.teacher = null;
     state.isAuthenticated = false;
   },
   LogoutFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = true;
-    state.error = action.error;
+    state.error = action.payload;
   },
   clearError: (state) => {
     state.error = null;
@@ -74,7 +76,7 @@ export const teacherLoadReducer = createReducer(initialState, {
   LoadFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = false;
-    state.error = action.error;
+    state.error = action.payload;
   },
   clearError: (state) => {
     state.error = null;
@@ -97,7 +99,7 @@ export const enrolledStudentsReducer = createReducer(initialState, {
   EnrolledStudentsFailure: (state, action) => {
     state.loading = false;
     state.isAuthenticated = false;
-    state.error = action.error;
+    state.error = action.payload;
   },
   clearError: (state) => {
     state.error = null;
@@ -185,6 +187,7 @@ export const profileStudentsReducer = createReducer(initialState, {
   PresentAttendenceSuccess: (state, action) => {
     state.loading = false;
     state.student = action.payload;
+    state.message = 'Present Sucessful'
   },
   PresentAttendenceFailure: (state, action) => {
     state.loading = false;

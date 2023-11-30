@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { allStudents, profileStudent } from "../../../action/Teacher";
 import { Skeleton } from "@mui/material";
 import StudentDetails from "../../Card/StudentDetails/StudentDetails";
+import Alert from "../../Card/Alert/Alert";
 
 const EnrolledStudents = () => {
 
@@ -14,7 +15,9 @@ const EnrolledStudents = () => {
   }, [dispatch]);
 
   // const { student, loading } = useSelector((state) => state.allStudents);
-
+  const { message } = useSelector(
+    (state) => state.studentProfile
+  );
   const { loading, teacher } = useSelector((state) => state.teacherLoad);
 
   return (
@@ -23,6 +26,11 @@ const EnrolledStudents = () => {
         <div>
           <p>All Enrolled Students</p>
         </div>
+        {message && (
+        <div className="alert-cont">
+          <Alert message={message} />
+        </div>
+      )}
         {loading ? (
           <>
             {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(
