@@ -31,7 +31,7 @@ const Login = () => {
     dispatch(loadTeacher());
   }, []);
   const { loading, error : loadError } = useSelector((state) => state.teacherLoad);
-  const { teacher, error } = useSelector((state) => state.teacherLogin);
+  const { teacher, error, message: logMessage } = useSelector((state) => state.teacherLogin);
   const { message } = useSelector((state) => state.teacherLogout);
 
   //login handler
@@ -71,6 +71,11 @@ const Login = () => {
             {message && (
               <div className="alert-cont">
                 <Alert message={message} />
+              </div>
+            )}
+            {logMessage && (
+              <div className="alert-cont">
+                <Alert message={logMessage} />
               </div>
             )}
             <div className="forms-container">

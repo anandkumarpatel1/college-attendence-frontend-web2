@@ -23,6 +23,7 @@ export const teacherLoginReducer = createReducer(initialState, {
   },
   RegisterSuccess: (state, action) => {
     state.loading = false;
+    state.message = `Register Success, Please Login with same email and password`
     state.teacher = action.payload;
     state.isAuthenticated = true;
   },
