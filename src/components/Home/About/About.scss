@@ -17,7 +17,9 @@
     border-radius: 25px;
 
     > p {
-      color: white;
+      background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
       font-size: 50px;
       font-weight: 900;
     }
@@ -51,6 +53,9 @@
         margin-top: 20px;
         font-size: 30px;
         font-weight: 700;
+        background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
       }
 
       > div {
@@ -60,6 +65,10 @@
         margin-bottom: 30px;
         align-items: center;
         margin-top: 20px;
+
+        >svg{
+          color: blue;
+        }
       }
     }
   }
@@ -81,6 +90,9 @@
       width: 50%;
       font-weight: 700;
       font-size: 30px;
+      background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
     }
   }
 
@@ -97,6 +109,9 @@
 
     > div {
       width: 50%;
+      background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
       > :first-child {
         font-weight: 900;
         font-size: 50px;
@@ -125,6 +140,9 @@
 
     > div {
       width: 50%;
+      background: linear-gradient(to right, rgba(255, 71, 71, 0.8), blue);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
       > :first-child {
         font-weight: 900;
         font-size: 50px;

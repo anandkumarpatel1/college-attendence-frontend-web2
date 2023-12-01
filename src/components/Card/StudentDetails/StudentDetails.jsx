@@ -26,7 +26,7 @@ const StudentDetails = ({ name, id, branch, semRollNo, semester, regNo }) => {
     let m, d;
     let len = student?.present;
     // len = student?.present
-    console.log(len);
+    // console.log(len);
   }
 
   const studentDetailsCardHandler = () => {
