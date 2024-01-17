@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./EnrolledStudents.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { allStudents, profileStudent } from "../../../action/Teacher";
+import { allStudents } from "../../../action/Teacher";
 import { Skeleton } from "@mui/material";
 import StudentDetails from "../../Card/StudentDetails/StudentDetails";
 import Alert from "../../Card/Alert/Alert";

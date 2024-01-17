@@ -6,7 +6,7 @@ import { Password } from "@mui/icons-material";
 
 const AddNewStu = () => {
   const [image, setImage] = useState(
-    "http://drive.google.com/uc?export=view&id=1yxARgpR_w-LRwRzXVEoj-8dE7-zRLMT4"
+    "https://img.freepik.com/free-photo/close-up-beautiful-girl-portrait_23-2150799919.jpg?t=st=1705131376~exp=1705134976~hmac=91a31254f333386f7759c5d8a2fc1aa439f3598cbd619a06bc5d41e0b829c47c&w=740"
   );
   const [name, setName] = useState("");
   const [regNo, setRegNo] = useState("");
@@ -37,35 +37,35 @@ const AddNewStu = () => {
             <select onChange={imgHandler}>
               <option
                 value={
-                  "http://drive.google.com/uc?export=view&id=1yxARgpR_w-LRwRzXVEoj-8dE7-zRLMT4"
+                  "https://img.freepik.com/free-photo/close-up-beautiful-girl-portrait_23-2150799919.jpg?t=st=1705131376~exp=1705134976~hmac=91a31254f333386f7759c5d8a2fc1aa439f3598cbd619a06bc5d41e0b829c47c&w=740"
                 }
               >
-                itachi
+                Izumi
               </option>
               <option
                 value={
-                  "http://drive.google.com/uc?export=view&id=1IqHK1SF-5S1Y8ocjaUZA3cMCLQqyUxz0"
+                  "https://img.freepik.com/free-photo/view-woman-holding-cup-coffee_23-2150698759.jpg?t=st=1705132571~exp=1705136171~hmac=76485fe89ec1c05f9b4249e9118875b5d1fa0aa318eef1ae8fd2cc0e6311dff7&w=740"
                 }
               >
-                madra
+                Noari
               </option>
               <option
                 value={
-                  "http://drive.google.com/uc?export=view&id=1pAbEDbMOAT1LZ9fC7IqOsrlVtPuf7OjF"
+                  "https://img.freepik.com/free-photo/portrait-boy-with-backpack-3d-rendering_1142-38959.jpg?t=st=1705137158~exp=1705140758~hmac=041393ae847135f9f132508f6e3795f1f7a813f069ecfa7ca34f978d895288a2&w=740"
                 }
               >
-                obito
+                Itachi
               </option>
               <option
                 value={
-                  "http://drive.google.com/uc?export=view&id=1h8-upQG677XlkNogXB8EWfbiFRoStJQG"
+                  "https://img.freepik.com/free-photo/3d-rendering-cute-cartoon-character-cafe-with-bokeh-background_1142-41143.jpg?t=st=1705513469~exp=1705517069~hmac=d1394d3bf4e7ad55e695b4579e45d2a37012817c21c88b7aee1a184c9789ad62&w=740"
                 }
               >
-                sasuke
+                Sarda
               </option>
               <option
                 value={
-                  "http://drive.google.com/uc?export=view&id=1xEXy9k3pY4QRrPW86G0ftjZBjAGYejLQ"
+                  "https://img.freepik.com/free-photo/3d-illustration-teenage-girl-with-hoodie_1142-32303.jpg?t=st=1705513492~exp=1705517092~hmac=39fdfa673b04cd57c1dba2603e64363d03f5540266d75aee6811c0d7c0f47be1&w=740"
                 }
               >
                 shishui
