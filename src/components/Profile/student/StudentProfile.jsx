@@ -137,7 +137,7 @@ const StudentProfile = () => {
           <div>{student?.name}'s Profile</div>
           <div>
             <div>
-              <img src='http://drive.google.com/uc?export=view&id=1yxARgpR_w-LRwRzXVEoj-8dE7-zRLMT4' alt={itachi} />
+              <img src='https://img.freepik.com/free-photo/3d-rendering-cute-cartoon-character-cafe-with-bokeh-background_1142-41143.jpg?t=st=1705513469~exp=1705517069~hmac=d1394d3bf4e7ad55e695b4579e45d2a37012817c21c88b7aee1a184c9789ad62&w=740' alt={itachi} />
             </div>
             <div>
               <div>
