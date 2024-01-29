@@ -69,7 +69,7 @@ const Home = () => {
                     </li>
                     <li>
                       <EastIcon />
-                      Safe and secure
+                      Safe and Secure
                     </li>
                     <li>
                       <EastIcon />
