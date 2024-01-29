@@ -14,7 +14,7 @@ export const loginTeacher = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher/login",
+      "https://college-attendence-back.vercel.app/api/v1/teacher/login",
       { email, password },
       config
     );
@@ -47,7 +47,7 @@ export const enrollNewStudent = (id) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/enroll/${id}`,
+      `https://college-attendence-back.vercel.app/api/v1/student/enroll/${id}`,
       config
     );
 
@@ -77,7 +77,7 @@ export const loadTeacher = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher",
+      "https://college-attendence-back.vercel.app/api/v1/teacher",
       config
     );
 
@@ -108,7 +108,7 @@ export const registerTeacher =
       };
 
       const { data } = await axios.post(
-        "https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher/register",
+        "https://college-attendence-back.vercel.app/api/v1/teacher/register",
         { name, subject, email, password },
         config
       );
@@ -139,7 +139,7 @@ export const getAllEnrolledStudents = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher",
+      "https://college-attendence-back.vercel.app/api/v1/teacher",
       config
     );
 
@@ -169,7 +169,7 @@ export const allStudents = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://college-attendence-backend-sp8j.vercel.app/api/v1/students",
+      "https://college-attendence-back.vercel.app/api/v1/students",
       config
     );
 
@@ -199,7 +199,7 @@ export const searchStudents = (key) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/students/${key}`,
+      `https://college-attendence-back.vercel.app/api/v1/students/${key}`,
       config
     );
 
@@ -229,7 +229,7 @@ export const profileStudent = (id) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/student/${id}`,
+      `https://college-attendence-back.vercel.app/api/v1/student/${id}`,
       config
     );
 
@@ -259,7 +259,7 @@ export const logoutTeacher = () => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      "https://college-attendence-backend-sp8j.vercel.app/api/v1/logout",
+      "https://college-attendence-back.vercel.app/api/v1/logout",
       config
     );
 
@@ -288,7 +288,7 @@ export const presentAttendence = (id) => async (dispatch) => {
     };
 
     const { data } = await axios.get(
-      `https://college-attendence-backend-sp8j.vercel.app/api/v1/attendence/present/student/${id}`,
+      `https://college-attendence-back.vercel.app/api/v1/attendence/present/student/${id}`,
       config
     );
 
@@ -320,7 +320,7 @@ export const newStudent =
       };
 
       const { data } = await axios.get(
-        `https://college-attendence-backend-sp8j.vercel.app/api/v1/teacher/createstudent`,
+        `https://college-attendence-back.vercel.app/api/v1/teacher/createstudent`,
         { name, image, regNo, password, semRollNo, branch, semester },
         config
       );
