@@ -183,7 +183,7 @@
       align-items: center;
 
       > p {
-        linear-gradient(90deg,hsl(341.62deg 100% 52.97%),blue);
+        background: linear-gradient(90deg,hsl(341.62deg 100% 52.97%),blue);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
       }
